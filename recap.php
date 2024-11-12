@@ -34,6 +34,8 @@
                             "<th>Prix</th>",
                             "<th>Quantité</th>",
                             "<th>Total</th>",
+                            "<th> </th>", // colonne pour supprimer produit
+                            "<th> </th>", // colonne pour supprimer tous les produits
                         "</tr",
                     "</thead>",
                     "<tbody>";
@@ -67,6 +69,9 @@
                         // "<td>".$product['total']."</td>",      // BASE
                         "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",   // AVEC FORMAT MONÉTAIRE
 
+                        // supprimer un seul produit
+                        "<td> <a href='traitement.php?action=delete&id=$index'>supprimer</a> </td>",
+
                     "</tr>";
                 $totalGeneral += $product['total']; // ajout du total du produit parcouru à la valeur de $totalGeneral 
             }
@@ -75,6 +80,9 @@
             echo "<tr>",
                     "<td colspan=4>Total général : </td>",  // cellule fusionnée de 4 cellules (colspan=4)
                     "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
+
+                    // supprimer tous les produits
+                    "<td> <a href='traitement.php?action=clear'>supprimer le panier</a> </td>",
                 "</tbody>",
                 "</table>";
 

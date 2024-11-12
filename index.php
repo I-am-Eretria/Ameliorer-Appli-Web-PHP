@@ -11,7 +11,8 @@
 
     <!-- Formulaire qui nous permettra de renseigner les produits à l'application -->
 
-    <form action="traitement.php" method="post">    <!-- action:  indique  la  cible  du  formulaire,  le  fichier  à  atteindre  lorsque  l'utilisateur soumettra le formulaire   -->
+    <!-- ajout ?action=add sinon formulaire ne fonctionne pas -->
+    <form action="traitement.php?action=add" method="post">    <!-- action:  indique  la  cible  du  formulaire,  le  fichier  à  atteindre  lorsque  l'utilisateur soumettra le formulaire   -->
                                                     <!-- method:  précise  par  quelle  méthode  HTTP  les  données  du  formulaire  seront transmises au serveur -->
                                                     <!-- post (pour method ici) : utiliser pour na  pas "polluer" l'URL avec les données du formulaire (possible d'utiliser méthode GET (méthode par défaut)) : cf page 7-8 pdf -->
         <p>

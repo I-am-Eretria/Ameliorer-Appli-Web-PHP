@@ -113,10 +113,10 @@
                         header("Location: recap.php");
                     }
 
-                    elseif($_SESSION["products"][$_GET['id']]['qtt']<=0){
+                    elseif($_SESSION["products"][$_GET['id']]['qtt']<1){
                         unset($_SESSION['products'][$_GET['id']]);
                         header("Location: recap.php");
-                    }
+                    };
 
             break;
 
