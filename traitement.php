@@ -106,17 +106,23 @@
 
             case "down-qtt": 
 
+                    // vérifier si le paramètre id est défini dans l'URL
+                    // + vérifier si le produit existe
+                    if(isset($_GET["id"]) && isset($_SESSION["products"][$_GET["id"]])){
 
-                    if($_SESSION["products"][$_GET['id']]['qtt']>1){
-                        // désigne tableau products -> cible product en particulier (id) -> quantité de ce produit -> -1 à quantité actuelle
+                        // décrémenter / -1 à quantité actuelle du produit
                         $_SESSION["products"][$_GET['id']]['qtt'] --;
+
+                        // si qtt = 0 -> on supprime le produit de la session
+                        if($_SESSION["products"][$_GET['id']]['qtt'] = 0){
+                            unset($_SESSION['products'][$_GET['id']]);
+                        }
+                        
+                        // redirection vers panier (mis à jour)
                         header("Location: recap.php");
+                        die();
                     }
 
-                    elseif($_SESSION["products"][$_GET['id']]['qtt']<1){
-                        unset($_SESSION['products'][$_GET['id']]);
-                        header("Location: recap.php");
-                    };
 
             break;
 
