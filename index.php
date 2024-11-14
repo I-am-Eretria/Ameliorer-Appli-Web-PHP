@@ -1,3 +1,14 @@
+<?php
+
+    // Utilités fonction session_start():  
+    // 1:  démarrer une session pour l'utilisateur courant
+    // 2:  récupérer sa session (si une déjà présente), possible car au démarrage d'une session le serveur enregistrera un cookie PHPSESSID dans le navigateur client 
+    //                                                           -> cookie contient identifiant de la session et sera transmis au serveur avec chaque requête HTTP effectuée par le client                                   
+    session_start();
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,6 +53,24 @@
             <!-- Possède également attribut "name" : serveur va pouvoir vérifier que le formulaire a bien été validé par l'utilisateur -->
         </p>
     </form>
+
+    <p>Quantité totale de produits: </p>
+
+
+    <!-- CORRECTION A FAIRE ICI -->
+    <?php
+
+        // if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+           
+        //     $totalQtt = 0;  // initialisation nouvelle variable à 0
+
+        //     foreach($_SESSION['products'] as $index => $product){
+        //         $totalQtt += $product['qtt'];
+        //     }
+
+        //     echo $totalQtt;
+        // }
+    ?>
 
 </body>
 </html>

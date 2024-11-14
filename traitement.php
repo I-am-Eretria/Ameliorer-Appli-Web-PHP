@@ -98,6 +98,10 @@
 
                 // désigne tableau products -> cible product en particulier (id) -> quantité de ce produit -> +1 à quantité actuelle
                 $_SESSION["products"][$_GET['id']]['qtt'] ++;
+
+                // Mis à jour du prix total pour le produit où la quantité a été incrémentée
+                $_SESSION["products"][$_GET['id']]['total'] = $_SESSION["products"][$_GET['id']]['price'] * $_SESSION["products"][$_GET['id']]['qtt'];
+
                 header("Location: recap.php");
 
             break;
@@ -114,13 +118,15 @@
                         $_SESSION["products"][$_GET['id']]['qtt'] --;
 
                         // si qtt = 0 -> on supprime le produit de la session
-                        if($_SESSION["products"][$_GET['id']]['qtt'] = 0){
+                        if($_SESSION["products"][$_GET['id']]['qtt'] == 0){
                             unset($_SESSION['products'][$_GET['id']]);
                         }
                         
+                        // Mis à jour du prix total pour le produit où la quantité a été décrémentée
+                        $_SESSION["products"][$_GET['id']]['total'] = $_SESSION["products"][$_GET['id']]['price'] * $_SESSION["products"][$_GET['id']]['qtt'];
+
                         // redirection vers panier (mis à jour)
                         header("Location: recap.php");
-                        die();
                     }
 
 

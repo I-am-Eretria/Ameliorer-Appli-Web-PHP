@@ -32,10 +32,11 @@
                             "<th>#</th>",
                             "<th>Nom</th>",
                             "<th>Prix</th>",
+                            "<th></th>", // colonne +1 quantité
                             "<th>Quantité</th>",
+                            "<th></th>", // colonne -1 quantité
                             "<th>Total</th>",
-                            "<th> </th>", // colonne pour supprimer produit
-                            "<th> </th>", // colonne pour supprimer tous les produits
+                            "<th> </th>", // colonne pour supprimer produit / tousles produits
                         "</tr",
                     "</thead>",
                     "<tbody>";
@@ -62,8 +63,9 @@
 
 
                         // "<td>".$product['qtt']."</td>",    // avant
-
-                        "<td><a href='traitement.php?action=up-qtt&id=$index'>+</a>".$product['qtt']."<a href='traitement.php?action=down-qtt&id=$index'>-</a></td>",
+                        "<td> <a href='traitement.php?action=up-qtt&id=$index'> + </a> </td>",  // +1 qtt
+                        "<td>".$product['qtt']."</td>",
+                        "<td> <a href='traitement.php?action=down-qtt&id=$index'> - </a> </td>",    // -1 qtt
 
 
                         // "<td>".$product['total']."</td>",      // BASE
@@ -77,12 +79,22 @@
             }
             
 
+            $totalQtt = 0;  // initialisation nouvelle variable à 0
+                    foreach($_SESSION['products'] as $index => $product){
+                        $totalQtt += $product['qtt'];
+                    }
+
+
             echo "<tr>",
-                    "<td colspan=4>Total général : </td>",  // cellule fusionnée de 4 cellules (colspan=4)
+                    "<td colspan=6>Total général : </td>",  // cellule fusionnée de 6 cellules (colspan=6)
                     "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
 
                     // supprimer tous les produits
                     "<td> <a href='traitement.php?action=clear'>supprimer le panier</a> </td>",
+                    "</tr>",
+                    "<tr> <td>  </td> </tr>", // temporaire : pour ajouter un espace
+                    "<tr> <td>  </td> </tr>", // temporaire : pour ajouter un espace
+                    "<td colspan=6> Quantité totale : $totalQtt produit(s)</td>",
                 "</tbody>",
                 "</table>";
 
