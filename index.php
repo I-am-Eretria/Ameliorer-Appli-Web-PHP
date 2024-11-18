@@ -14,15 +14,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>Ajout produit</title>
 </head>
 <body>
 
     <nav class="navbar poppins-semibold">
-        <a class="link" href="index.php"> <i class="fa-solid fa-house fa-sm"></i> Accueil</a>
-        <a class="link" href="recap.php"> <i class="fa-solid fa-basket-shopping fa-sm"></i> Panier</a>
+        <a class="link" href="index.php"> <i class="icon-navbar fa-solid fa-house fa-sm"></i> Accueil</a>
+        <a class="link" href="recap.php"> <i class="icon-navbar fa-solid fa-basket-shopping fa-sm"></i> Panier</a>
     </nav>
 
 

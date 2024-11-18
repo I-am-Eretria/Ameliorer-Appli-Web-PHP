@@ -11,16 +11,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="assets/css/recap.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.0/css/all.min.css">
+
     <title>Récapitulatif des produits</title>
 </head>
 <body>
     
 
     <nav class="navbar poppins-semibold">
-        <a class="link" href="index.php"> <i class="fa-solid fa-house fa-sm"></i> Accueil</a>
-        <a class="link" href="recap.php"> <i class="fa-solid fa-basket-shopping fa-sm"></i> Panier</a>
+        <a class="link" href="index.php"> <i class="icon-navbar fa-solid fa-house fa-sm"></i> Accueil</a>
+        <a class="link" href="recap.php"> <i class="icon-navbar fa-solid fa-basket-shopping fa-sm"></i> Panier</a>
     </nav>
 
     <div class="container poppins-regular">
@@ -73,16 +74,18 @@
 
 
                             // "<td>".$product['qtt']."</td>",    // avant
-                            "<td> <a href='traitement.php?action=up-qtt&id=$index'> + </a> </td>",  // +1 qtt
+                            "<td> <a href='traitement.php?action=up-qtt&id=$index'> <i class='fa-solid fa-plus plus'></i> </a> </td>",  // +1 qtt
                             "<td>".$product['qtt']."</td>",
-                            "<td> <a href='traitement.php?action=down-qtt&id=$index'> - </a> </td>",    // -1 qtt
+                            "<td> <a href='traitement.php?action=down-qtt&id=$index'> <i class='fa-solid fa-minus minus'></i> </a> </td>",    // -1 qtt
 
 
                             // "<td>".$product['total']."</td>",      // BASE
                             "<td>".number_format($product['total'], 2, ",", "&nbsp;")."&nbsp;€</td>",   // AVEC FORMAT MONÉTAIRE
 
                             // supprimer un seul produit
-                            "<td> <a href='traitement.php?action=delete&id=$index'>supprimer</a> </td>",
+                            "<td> 
+                                <a href='traitement.php?action=delete&id=$index' class='delete poppins-semibold'> supprimer l'article <i class='fa-solid fa-xmark'></i> </a> 
+                            </td>",
 
                         "</tr>";
                     $totalGeneral += $product['total']; // ajout du total du produit parcouru à la valeur de $totalGeneral 
@@ -100,7 +103,9 @@
                         "<td><strong>".number_format($totalGeneral, 2, ",", "&nbsp;")."&nbsp;€</strong></td>",
 
                         // supprimer tous les produits
-                        "<td> <a href='traitement.php?action=clear'>supprimer le panier</a> </td>",
+                        "<td> 
+                            <a href='traitement.php?action=clear' class='clear poppins-bold'> supprimer le panier <i class='fa-solid fa-trash'></i> </a> 
+                        </td>",
                         "</tr>",
                         "<tr> <td>  </td> </tr>", // temporaire : pour ajouter un espace
                         "<tr> <td>  </td> </tr>", // temporaire : pour ajouter un espace
