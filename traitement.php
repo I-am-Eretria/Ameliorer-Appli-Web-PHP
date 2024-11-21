@@ -117,14 +117,16 @@
                         // décrémenter / -1 à quantité actuelle du produit
                         $_SESSION["products"][$_GET['id']]['qtt'] --;
 
+                        // Mise à jour du prix total pour le produit où la quantité a été décrémentée
+                        $_SESSION["products"][$_GET['id']]['total'] = $_SESSION["products"][$_GET['id']]['price'] * $_SESSION["products"][$_GET['id']]['qtt'];
+
+
                         // si qtt = 0 -> on supprime le produit de la session
                         if($_SESSION["products"][$_GET['id']]['qtt'] == 0){
                             unset($_SESSION['products'][$_GET['id']]);
+
                         }
                         
-                        // Mis à jour du prix total pour le produit où la quantité a été décrémentée
-                        $_SESSION["products"][$_GET['id']]['total'] = $_SESSION["products"][$_GET['id']]['price'] * $_SESSION["products"][$_GET['id']]['qtt'];
-
                         // redirection vers panier (mis à jour)
                         header("Location: recap.php");
                     }

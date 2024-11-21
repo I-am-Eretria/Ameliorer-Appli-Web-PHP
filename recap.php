@@ -74,9 +74,9 @@
 
 
                             // "<td>".$product['qtt']."</td>",    // avant
-                            "<td> <a href='traitement.php?action=up-qtt&id=$index'> <i class='fa-solid fa-plus plus'></i> </a> </td>",  // +1 qtt
-                            "<td>".$product['qtt']."</td>",
                             "<td> <a href='traitement.php?action=down-qtt&id=$index'> <i class='fa-solid fa-minus minus'></i> </a> </td>",    // -1 qtt
+                            "<td class='qtt'>".$product['qtt']."</td>",
+                            "<td> <a href='traitement.php?action=up-qtt&id=$index'> <i class='fa-solid fa-plus plus'></i> </a> </td>",  // +1 qtt
 
 
                             // "<td>".$product['total']."</td>",      // BASE

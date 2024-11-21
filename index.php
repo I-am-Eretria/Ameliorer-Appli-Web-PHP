@@ -64,25 +64,31 @@
             </p>
         </form>
 
-        <p>Quantité totale de produits: </p>
+        <p>Quantité totale de produits: 
+        
+            <?php
+
+                if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
+                
+                    echo 0; // si n'existe pas ou vide alors on affiche 0
+
+                } else {
+
+                    $totalQtt = 0;  // initialisation nouvelle variable à 0
+        
+                    foreach($_SESSION['products'] as $index => $product){
+                        $totalQtt += $product['qtt'];  
+                    }
+
+                    echo $totalQtt;
+
+                }
+                
+            ?>
+        </p>
 
     </div>
     
-
-    <!-- CORRECTION A FAIRE ICI -->
-    <?php
-
-        // if(!isset($_SESSION['products']) || empty($_SESSION['products'])){
-           
-        //     $totalQtt = 0;  // initialisation nouvelle variable à 0
-
-        //     foreach($_SESSION['products'] as $index => $product){
-        //         $totalQtt += $product['qtt'];
-        //     }
-
-        //     echo $totalQtt;
-        // }
-    ?>
 
 </body>
 </html>
